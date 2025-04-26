@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valley View Farms Golf League</title>
+    <link rel="stylesheet" href="/static/CSS/styles.css">
+</head>
+<body>
+    <div class="header-container">
+        <h1>Valley View Farms Golf League</h1>
+    </div>
+    <div class="logo-container">
+        <img id="logo" src="\static\images\vvfgc.jpg" alt="Valley View Farms Golf League Logo">
+    </div>  
+    <div class="header-container">
+    <form action="/add_league_and_player" method="POST">
+        <h3>ADD TEAM NAME</h3>
+        <label for="LeagueName">League Name:</label>
+        <input type="text" id="LeagueName" name="LeagueName" class="input-field" required>
+        <h3>ADD PLAYER</h3>
+        <label for="PlayerName">First Name:</label>
+        <input type="text" id="FirstName" name="FirstName" class="input-field" required><br><br>
+        <label for="LastName">Last Name:</label>
+        <input type="text" id="LastName" name="LastName" class="input-field" required><br><br>
+        <label for="Handicap">Handicap:</label>
+        <input type="text" id="Handicap" name="Handicap" class="input-field" required><br><br> 
+        <button type="submit" class="submit-button">Submit</button><br>
+    </form>
+        <a href="/add_player_score"><button>Enter Player Round Score</button></a><br>
+        <a href="/player_scores"><button>Round Scores</button></a><br>
+        <a href="/players_and_handicaps"><button>Player Handicaps</button></a><br>
+        <a href="/edit_player"><button>Edit or Delete Player Information</button></a><br>
+        <a href="/"><button>Home</button></a><br>
+    </div>
+    </a>
+</body>
+</html>

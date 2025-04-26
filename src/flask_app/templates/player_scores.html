@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valley View Farms Golf League</title>
+    <link rel="stylesheet" href="/static/CSS/styles.css">
+</head>
+<body>
+    <div class="header-container">
+        <h1>Valley View Farms Golf League</h1>
+    </div>
+    <div class="logo-container">
+        <img id="logo" src="\static\images\vvfgc.jpg" alt="Valley View Farms Golf League Logo">
+    </div>  
+    <div class="header-container">
+        <h1>Player's Scores</h1>
+        <div class="scores-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Score</th>
+                        <th>Date</th>
+                        <th>Edit Score</th>
+                        <th>Delete Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for score in scores %}
+                    <tr>
+                        <td>{{ score['FirstName'] }} {{ score['LastName'] }}</td>
+                        <td>{{ score['Score'] }}</td>
+                        <td>{{ score['Date'].strftime('%d-%b-%Y') }}</td>
+                        <td><a href="/edit_score/{{ score['ScoreID'] }}"><button class="edit-button">Edit Score</button></a></td>
+                        <td>
+                            <form method="post" action="/delete_score/{{ score['ScoreID'] }}">
+                                <input type="hidden" name="_method" value="delete">
+                                <button type="submit" class="delete-score-button">Delete Score</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <br></br>
+        <div>
+            <a href="/add_player_score"><button>Enter Player Round Score</button></a><br>
+            <a href="/players_and_handicaps"><button>Player Handicaps</button></a><br>
+            <a href="/"><button>Home</button></a><br><br>
+        </div>
+    </div>
+...
+
+
+
+
+

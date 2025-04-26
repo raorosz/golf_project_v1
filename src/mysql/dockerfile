@@ -1,0 +1,14 @@
+# Use an official MySQL image as a parent image
+FROM mysql:latest
+
+# Copy the initialization SQL script into the container
+COPY dump_golf_app_v1.sql /docker-entrypoint-initdb.d/
+
+# Define environment variables
+ENV MYSQL_ROOT_PASSWORD=P@ssword    
+ENV MYSQL_DATABASE=golf_db
+ENV MYSQL_USER=root
+ENV MYSQL_PASSWORD=P@ssword
+
+# Expose port 
+EXPOSE 3306

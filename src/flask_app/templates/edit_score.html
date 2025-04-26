@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valley View Farms Golf League</title>
+    <link rel="stylesheet" href="/static/CSS/styles.css">
+</head>
+<body>
+    <div class="header-container">
+        <h1>Valley View Farms Golf League</h1>
+    </div>
+    <div class="logo-container">
+        <img id="logo" src="\static\images\vvfgc.jpg" alt="Valley View Farms Golf League Logo">
+    </div>
+    <div class="header-container">
+        <h1>Edit Score for:</h1>
+        <h4>{{ player_details['FirstName'] }} {{ player_details['LastName'] }}</h4>
+        <form action="/update_score/{{ score_details.ScoreID }}" method="POST">
+            <label for="new_score">New Score:</label>
+            <input type="text" id="new_score" name="new_score" class="score-input-field" value="{{ score_details.Score }}"><br><br>
+
+            <label for="new_date">New Date:</label>
+            <input type="date" id="new_date" name="new_date" value="{{ score_details.Date }}"><br><br>
+
+            <label for="teebox_id">Teebox:</label>
+            <select id="teebox_id" name="teebox_id">
+                {% for teebox in teeboxes %}
+                    <option value="{{ teebox.TeeboxID }}">{{ teebox.TeeboxName }}</option>
+                {% endfor %}
+            </select><br><br>
+
+            <button type="submit">Update Score</button><br><br>
+            <a href="/edit_score"><button>Back</button></a><br>
+        </form>
+    </div>
+</body>
+</html>

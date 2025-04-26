@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valley View Farms Golf League</title>
+    <link rel="stylesheet" href="/static/CSS/styles.css">
+</head>
+<body>
+    <div class="header-container">
+        <h1>Valley View Farms Golf League</h1>
+    </div>
+    <div class="logo-container">
+        <img id="logo" src="\static\images\vvfgc.jpg" alt="Valley View Farms Golf League Logo">
+    </div>  
+    <div class="header-container">
+    <form action="/add_player_score" method="POST">
+        <label for="PlayerID">Player:</label>
+        <select id="PlayerID" name="PlayerID" required>
+        <!-- Fetch and populate options with player names from the database -->
+        {% for player in players | sort(attribute='FirstName') %}
+            <option value="{{ player.PlayerID }}">{{ player.FirstName }} {{ player.LastName }}</option>
+        {% endfor %}
+        </select><br><br>
+        <label for="TeeboxID">Tee Box:</label>
+        <select id="TeeboxID" name="TeeboxID" required>
+            <!-- Fetch and populate options with tee box names from the database -->
+            {% for teebox in teeboxes %}
+                <option value="{{ teebox.TeeboxID }}">{{ teebox.TeeboxName }}</option>
+            {% endfor %}
+        </select><br></br>   
+        <input type="hidden" id="PlayerID" name="PlayerID" value=""> <!-- Hidden field for PlayerID -->
+
+        <label for="Score">Score:</label>
+        <input type="text" id="Score" name="Score" class="score-input-field" required><br><br>
+
+        <label for="Date">Date:</label>
+        <input type="date" id="Date" name="Date" required><br><br>
+
+        <button type="submit" class="submit-button">Submit Score</button><br>
+    </form>       
+    <div>
+        <a href="/player_scores"><button>Player Scores</button></a><br>
+        <a href="/players_and_handicaps"><button>Player Handicap</button></a><br>
+        <a href="/"><button>Home</button></a><br>
+    </div>
+</body>
+</html>

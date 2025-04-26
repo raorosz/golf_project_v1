@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valley View Farms Golf League</title>
+    <link rel="stylesheet" href="/static/CSS/styles.css">
+</head>
+<body>
+    <div class="header-container">
+        <h1>Valley View Farms Golf League</h1>
+    </div>
+    
+    <div class="logo-container">
+        <img id="logo" src="/static/images/vvfgc.jpg" alt="Valley View Farms Golf League Logo">
+    </div>
+
+    <div class="header-container">
+        <h2>Golf Rounds Statistics</h2>
+    </div>
+
+    {% if golf_rounds_results and golf_rounds_results[0] %}
+    <table>
+        <tr>
+            <th>Score Range</th>
+            <th>Count</th>
+            <th>Percentage</th>
+        </tr>
+        <tr>
+            <td>Rounds 39 and under</td>
+            <td>{{ golf_rounds_results[0][0] or 0 }}</td>
+            <td>{{ "{:.2f}".format(golf_rounds_results[0][4] or 0) }}%</td>
+        </tr>
+        <tr>
+            <td>Rounds between 40 and 49</td>
+            <td>{{ golf_rounds_results[0][1] or 0 }}</td>
+            <td>{{ "{:.2f}".format(golf_rounds_results[0][5] or 0) }}%</td>
+        </tr>
+        <tr>
+            <td>Rounds above 50</td>
+            <td>{{ golf_rounds_results[0][2] or 0 }}</td>
+            <td>{{ "{:.2f}".format(golf_rounds_results[0][6] or 0) }}%</td>
+        </tr>
+        <tr>
+            <td>Total Rounds</td>
+            <td>{{ golf_rounds_results[0][3] or 0 }}</td>
+            <td>-</td>
+        </tr>
+    </table>
+    {% else %}
+    <table>
+        <tr>
+            <td colspan="3">No golf rounds data available.</td>
+        </tr>
+    </table>
+    {% endif %}
+
+    <div class="header-container">
+        <h2>Handicap Statistics</h2>
+    </div>
+
+    <table>
+        <tr>
+            <th>Handicap Range</th>
+            <th>Count</th>
+            <th>Percentage</th>
+        </tr>
+        {% if handicap_results and handicap_results[0] %}
+        <tr>
+            <td>Handicap less than 0</td>
+            <td>{{ handicap_results[0][0] or 0 }}</td>
+            <td>{{ "{:.2f}".format(handicap_results[0][6] if handicap_results[0][6] is not none else 0) }}%</td>
+        </tr>
+        <tr>
+            <td>Handicap 1 to 5</td>
+            <td>{{ handicap_results[0][1] or 0 }}</td>
+            <td>{{ "{:.2f}".format(handicap_results[0][7] if handicap_results[0][7] is not none else 0) }}%</td>
+        </tr>
+        <tr>
+            <td>Handicap 6 to 10</td>
+            <td>{{ handicap_results[0][2] or 0 }}</td>
+            <td>{{ "{:.2f}".format(handicap_results[0][8] if handicap_results[0][8] is not none else 0) }}%</td>
+        </tr>
+        <tr>
+            <td>Handicap 11 to 15</td>
+            <td>{{ handicap_results[0][3] or 0 }}</td>
+            <td>{{ "{:.2f}".format(handicap_results[0][9] if handicap_results[0][9] is not none else 0) }}%</td>
+        </tr>
+        <tr>
+            <td>Handicap 16 to 20</td>
+            <td>{{ handicap_results[0][4] or 0 }}</td>
+            <td>{{ "{:.2f}".format(handicap_results[0][10] if handicap_results[0][10] is not none else 0) }}%</td>
+        </tr>
+        <tr>
+            <td>Total Players</td>
+            <td>{{ handicap_results[0][5] or 0 }}</td>
+            <td>-</td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="3">No handicap data available.</td>
+        </tr>
+        {% endif %}
+    </table>
+
+    <div class="header-container">
+        <h2>Lowest Score Leaderboard</h2>
+    </div>
+
+    <table>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Score</th>
+            <th>Date</th>
+        </tr>
+        {% if low_round_scores %}
+            {% for score in low_round_scores %}
+            <tr>
+                <td>{{ score[0] or "N/A" }}</td>
+                <td>{{ score[1] or "N/A" }}</td>
+                <td>{{ score[2] or "N/A" }}</td>
+                <td>{{ score[3] or "N/A" }}</td>
+            </tr>
+            {% endfor %}
+        {% else %}
+        <tr>
+            <td colspan="4">No low round scores available.</td>
+        </tr>
+        {% endif %}
+    </table>
+
+    <br>
+    <div class="header-container">
+        <a href="/"><button>Home</button></a>
+    </div>
+</body>
+</html>

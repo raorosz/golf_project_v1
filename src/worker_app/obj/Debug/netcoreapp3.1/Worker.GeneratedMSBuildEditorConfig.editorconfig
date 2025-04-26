@@ -1,0 +1,5 @@
+is_global = true
+build_property.RootNamespace = Worker
+build_property.ProjectDir = C:\golf_project\worker\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 

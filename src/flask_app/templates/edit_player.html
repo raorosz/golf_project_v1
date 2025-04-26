@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valley View Farms Golf League</title>
+    <link rel="stylesheet" href="/static/CSS/styles.css">
+</head>
+<body>
+    <div class="header-container">
+        <h1>Valley View Farms Golf League</h1>
+    </div>
+    <div class="logo-container">
+        <img id="logo" src="\static\images\vvfgc.jpg" alt="Valley View Farms Golf League Logo">
+    </div>
+<body>
+    <div class="header-container">
+    <h2>Edit Player</h2>
+    <form method="post" action="/edit_player">
+    <div class="header-container">
+        <label for="PlayerID">Select Player:</label>
+        <select name="PlayerID" id="PlayerID">
+            {% for player in players | sort(attribute='FirstName') %}
+            <option value="{{ player.PlayerID }}">{{ player.FirstName }} {{ player.LastName }}</option>
+            {% endfor %}
+        </select>
+        </div>
+        <button type="submit" class="submit-button">Submit</button>
+    </form>
+    <br></br>
+    <h2>Delete Player</h2>
+    <!-- Form for deleting player and league -->
+    <form method="post" action="/delete_player_and_league">
+        <div class="header-container">
+        <label for="PlayerID">Select Player to Delete:</label>
+        <select name="PlayerID" id="PlayerID">
+            {% for player in players | sort(attribute='FirstName') %}
+            <option value="{{ player.PlayerID }}">{{ player.FirstName }} {{ player.LastName }}</option>
+            {% endfor %}
+        </select>
+        </div>
+        <button type="submit" class="submit-button">Submit</button>
+    </form>
+    <div>
+        <a href="/"><button>Home</button></a><br>
+    </div>
+    {% if success_message %}
+        <p>{{ success_message }}</p>
+    {% elif error_message %}
+        <p>{{ error_message }}</p>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,83 @@
+services:
+  flask_app:
+    image: ghcr.io/raorosz/golf-app:flask_app_v1.0
+    ports:
+      - "5000:80"
+    depends_on:
+      mysql_db:
+        condition: service_healthy
+      postgres_db:
+        condition: service_healthy
+    environment:
+      - FLASK_ENV=production
+      - MYSQL_HOST=mysql_db
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=P@ssword
+      - MYSQL_DATABASE=golf_db
+      - POSTGRES_HOST=postgres_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=P@ssword
+      - POSTGRES_DB=postgres
+    networks:
+      - golf_network
+
+  worker_app:
+    image: ghcr.io/raorosz/golf-app:worker_app_v1.0
+    ports:
+      - "5001:80"
+      - "127.0.0.1:9229:9229"
+    depends_on:
+      mysql_db:
+        condition: service_healthy
+      postgres_db:
+        condition: service_healthy
+    environment:
+      - MYSQL_HOST=mysql_db
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=P@ssword
+      - MYSQL_DATABASE=golf_db
+      - POSTGRES_HOST=postgres_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=P@ssword
+      - POSTGRES_DB=postgres
+    networks:
+      - golf_network
+
+  mysql_db:
+    image: ghcr.io/raorosz/golf-app:mysql_v1.0
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: P@ssword
+      MYSQL_DATABASE: golf_db
+    volumes:
+      - ./dump_golf_db_v1.sql:/docker-entrypoint-initdb.d/dump_golf_db_v1.sql
+    networks:
+      - golf_network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-pP@ssword"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  postgres_db:
+    image: ghcr.io/raorosz/golf-app:postgres_v1.0
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: P@ssword
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+    volumes:
+      - ./worker/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    networks:
+      - golf_network
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+networks:
+  golf_network:
+    driver: bridge

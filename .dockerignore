@@ -1,0 +1,5 @@
+golf_project/kubernetes/deployment.yaml
+venv/
+kubernetes/
+MYSQL_STATEMENTS.txt
+xxdocker-compose.yaml

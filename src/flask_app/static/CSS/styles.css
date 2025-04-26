@@ -1,0 +1,250 @@
+/* styles.css */
+
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: black;
+}
+
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: green;
+}
+h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: green;
+}
+h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: green;
+}
+h4 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+/* Style each player's score info */
+.player-info {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    font-size: 16px;
+    color: white;
+    display: flex;
+    justify-content: space-between; /* Space between name and score */
+    align-items: center;
+    margin-bottom: 10px; /* Add some space between each player's info */
+    width: 115%; /* Adjust width as needed */
+}
+
+.stats {
+    color: white;
+    display: flex;
+    justify-content: space-between; /* Center content horizontally */
+    align-items: center;
+    text-align: left;
+}
+
+
+
+
+.player-and-handicap-info {
+    color: white;
+    display: flex;
+    justify-content: space-between; /* Center content horizontally */
+    align-items: center;
+    text-align: left;
+}
+
+.players-and-handicaps-container {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    font-size: 16px;
+    width: 100%; /* Adjust width as needed */
+    display: flex;
+    justify-content: center;
+}
+
+/* Style the score text */
+.score {
+    color: white;
+    text-align: left; /* Align scores to the left */
+    margin-right: 290px; /* Add some space between score and button */
+}
+
+
+label {
+    font-family: Arial, Helvetica, sans-serif;
+    color: green; /* Set the color of the label text */
+    font-weight: bold; /* Make the label text bold */
+    margin-bottom: 5px; /* Add space below each label */
+}
+
+select {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white; /* Text color */
+    background-color: #333; /* Background color */
+    padding: 4px 12px; /* Add padding to the dropdown */
+    font-size: 14px; /* Adjust font size */
+    border-radius: 10px; /* Add border radius */
+    border: 1px solid #ccc; /* Add border */
+}
+
+/* Style the date input */
+input[type="date"] {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white; /* Text color */
+    background-color: #333; /* Background color */
+    padding: 4px 10px; /* Add padding to the input */
+    font-size: 16px; /* Adjust font size */
+    border-radius: 10px; /* Add border radius */
+    border: 1px solid #ccc; /* Add border */
+}
+
+.edit-button,
+.delete-score-button {
+    width: 120px; /* Set the same width for both buttons */
+    margin-left: 10px; /* Add some space between buttons */
+}
+
+button {
+    font-family: Arial, Helvetica, sans-serif;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 15px;
+    margin-top: 5px; /* Add a little space between buttons */
+    width: 17%;
+    background-color: #006400;
+    border-color: silver;
+    border-width: 2px;
+    color: white;
+    font-weight: bold;
+    
+}
+
+
+.edit-button {
+    background-color: #006400;
+}
+
+.delete-score-button {
+    background-color: #006400;
+}
+
+.edit-button:hover,
+.delete-score-button:hover {
+    background-color: red;
+}
+
+.submit-button {
+    font-family: Arial, Helvetica, sans-serif;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 15px;
+    margin-top: 5px; /* Add a little space between buttons */
+    width: 17%;
+    background-color: #006400;
+    border-color: silver;
+    border-width: 2px;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 0;
+    
+}
+
+.submit-button:hover {
+    /* Add styles for hover state of the submit button */
+    background-color: #cc0000; /* Example different background color on hover */
+    /* Add any other hover styles */
+}
+
+/* Style for the container holding player info */
+.player-info-container {
+    display: flex;
+    justify-content: flex-start; /* Align player info to the left */
+    align-items: center;
+}
+
+
+/* Style the scores and edit buttons container */
+.scores-container {
+    font-size: 16px;
+    display: flex;
+    flex-direction: column; /* Align items vertically */
+    align-items: center; /* Center horizontally */
+    width: 100%
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    align-items: center;
+    margin-top: 5px; /* Add margin for spacing */
+}
+
+.logo-container {
+    text-align: center; /* Center the image */
+    margin-bottom: 20px; /* Add space below the image */
+}
+
+.header-container {
+    text-align: center; /* Center the heading */
+    margin-bottom: 20px; /* Add space below the heading */
+}
+
+/* Define styles for edit button */
+.edit-button-container {
+    margin-left: 10px; /* Add some space between player info and edit button */
+}
+
+/* Define styles for edit button */
+.delete-score-button-container {
+    margin-left: 10px; /* Add some space between player info and edit button */
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#logo {
+    width: auto; /* Set the width of the logo */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.score-input-field {
+    width: calc(10% - 100px); /* Calculate the width of the input field */
+    padding: 4px 10px; /* Add padding to the input field */
+    font-size: 14px; /* Adjust font size */
+    border-radius: 10px; /* Add border radius */
+    border: 1px solid #ccc; /* Add border */
+}
+
+
+.input-field {
+    width: calc(15% - 100px); /* Calculate the width of the input field */
+    padding: 4px 10px; /* Add padding to the input field */
+    font-size: 14px; /* Adjust font size */
+    border-radius: 10px; /* Add border radius */
+    border: 1px solid #ccc; /* Add border */
+}
+
+table {
+    border-collapse: collapse;
+    width: 50%;
+    margin: 0 auto; /* Center align the table */
+}
+
+th, td {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    color: white;
+    border: 2px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+}
+
+th {
+    font-size: larger;
+    background-color: black;
+}

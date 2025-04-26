@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valley View Farms Golf League</title>
+    <link rel="stylesheet" href="/static/CSS/styles.css">
+</head>
+<body>
+    <div class="header-container">
+        <h1>Valley View Farms Golf League</h1>
+    </div>
+    <div class="logo-container">
+        <img id="logo" src="\static\images\vvfgc.jpg" alt="Valley View Farms Golf League Logo">
+    </div>  
+    <div class="header-container">
+        <h2>Edit Player Details</h2>
+    </div>
+    <div class="header-container">
+    <form method="post" action="/update_player_and_league">
+        <input type="hidden" name="PlayerID" class="input-field" value="{{ player_details.PlayerID }}"><br></br>
+        <label for="FirstName">First Name:</label>
+        <input type="text" id="FirstName" name= "FirstName" class="input-field" value="{{ player_details.FirstName }}"><br></br>
+        <label for="LastName">Last Name:</label>
+        <input type="text" id="LastName" name="LastName" class="input-field" value="{{ player_details.LastName }}"><br></br>
+        <label for="Handicap">Handicap:</label>
+        <input type="text" id="Handicap" name="Handicap" class="input-field" value="{{ player_details.Handicap }}"><br></br>
+        <label for="LeagueName">Team Name:</label>
+        <input type="text" id="LeagueName" name="LeagueName" class="input-field" value="{{ player_details.LeagueName }}"><br></br>
+        <button type="submit">Save Changes</button>
+    </form>
+    <br></br>        
+            <a href="/edit_player"><button>BACK</button></a><br></br>
+    </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valley View Farms Golf League</title>
+    <link rel="stylesheet" href="/static/CSS/styles.css">
+</head>
+<body>
+    <div class="header-container">
+        <h1>Valley View Farms Golf League</h1>
+    </div>
+    <div class="logo-container">
+        <img id="logo" src="\static\images\vvfgc.jpg" alt="Valley View Farms Golf League Logo">
+    </div>
+    <div class="header-container">
+        <h2>Player Handicaps</h2>
+    </div>
+    <div class="players-and-handicaps-container">
+        <table>
+            <tr>
+                <th>Player</th>
+                <th>Handicap</th>
+                <th>Team</th>
+            </tr>
+            {% for player_info in players_with_handicaps_and_leagues %}
+            <tr>
+                <td>{{ player_info['FirstName'] }} {{ player_info['LastName'] }}</td>
+                <td>{{ player_info['Handicap'] }}</td>
+                <td>{{ player_info['LeagueName'] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <br><br>        
+    <div class="header-container">
+        <a href="/add_player_score"><button>Enter Player Round Score</button></a><br>
+        <a href="/player_scores"><button>Player Scores</button></a><br>
+        <a href="/"><button>Home</button></a><br><br>   
+    </div>
+</body>    
+</html>
