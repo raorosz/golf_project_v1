@@ -9,7 +9,6 @@ It includes:
 - **League Standings and Statistics**
 - **Automatic data sync** between MySQL and PostgreSQL
 - **Dockerized Deployment**
-- **Kubernetes Manifests** for cloud deployment
 
 ---
 
