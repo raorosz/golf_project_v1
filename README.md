@@ -78,6 +78,6 @@ Credentials (inside docker-compose):
 
 ## 🎥 [Watch Project Demo on YouTube](https://youtu.be/RWCRX5PooJk)
 
-
+---
 
 > Built with ❤️ by Robert Orosz.
