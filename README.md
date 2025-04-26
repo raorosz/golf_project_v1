@@ -75,18 +75,4 @@ Credentials (inside docker-compose):
 /README.md
 ```
 
----
-
-## ⚙️ Future Improvements
-- Add authentication/login system
-- Email notifications for player updates
-- Full leaderboard across seasons
-- Deploy to AWS using EKS and RDS
-
-
----
-
-## 🙏 Acknowledgments
-Big thanks to the Valley View Farms Golf League team for the inspiration!
-
 > Built with ❤️ by Robert Orosz.
