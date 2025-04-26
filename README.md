@@ -57,9 +57,7 @@ Credentials (inside docker-compose):
 ## 🏌️ Main Features
 - Add Players & Teams
 - Enter Round Scores
-- Automatically calculate Handicap Index
 - View Live League Standings and Stats
-- Backup all data nightly to PostgreSQL
 
 ---
 
@@ -74,5 +72,12 @@ Credentials (inside docker-compose):
 /docker-compose.yaml
 /README.md
 ```
+## 🎥 Project Demo Video
 
+[![Watch the video](https://img.shields.io/badge/YouTube-Project%20Demo-red?logo=youtube&logoColor=white)](https://youtu.be/RWCRX5PooJk)
+
+## 🎥 [Watch Project Demo on YouTube](https://youtu.be/RWCRX5PooJk)
+
+
+```
 > Built with ❤️ by Robert Orosz.
